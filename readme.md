@@ -27,11 +27,30 @@ cd gdb-opencv-viewer
 mkdir Debug && cd Debug
 cmake -DCMAKE_BUILD_TYPE=Debug .. && make
 gdb ./viewer
-break 22
+break 26
 run
 plot img_color
 plot img_gray
 ```
+* view Mat in vector:
+if just use the follow command:
+```
+plot img_vec[0]
+plot img_vec[1]
+```
+we will get:
+```
+Python Exception <class 'gdb.error'> Could not find operator[].: 
+Error occurred in Python command: Could not find operator[].
+```
+and the right way to view the mat in vector is:
+```
+pvector img_vec
+plot $1
+plot $2
+```
+See more in next section.
+
 * NOTE: There may be some bugs with the imshow in python under GNU/Linux, which make you unable to close the image by click the "close" button on the dialog, but you can just click the image and press any key to close the image dialog.
 
 ## Others
