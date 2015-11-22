@@ -19,5 +19,9 @@ int main(int argc, char *argv[])
 	str_int_map[string("two")] = 2;
 	str_int_map[string("three")] = 3;
 
+	vector<Mat> img_vec;
+	img_vec.push_back(img_color);
+	img_vec.push_back(img_gray);
+
     return 0;
 }
