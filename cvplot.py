@@ -3,6 +3,7 @@
 import gdb
 import cv2.cv as cv
 import sys
+#from subprocess import call
 
 class PlotterCommand(gdb.Command):
     def __init__(self):
@@ -74,6 +75,11 @@ class PlotterCommand(gdb.Command):
         # will hang
         cv.WaitKey(0)
         cv.DestroyWindow('viewer')
- 
+
+        # save matrix as an xml file and open it with matrix viewer
+        # cv.Save("/tmp/dump.xml", img, "matrix")
+        # call(["matrix-viewer", "/tmp/dump.xml"])
+        # cv.SaveImage("/tmp/viewer.png", img)
+        # call(["matrix-viewer", "/tmp/viewer.png"])
         
 PlotterCommand()
